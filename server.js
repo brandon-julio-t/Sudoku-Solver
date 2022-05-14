@@ -5,7 +5,7 @@ const expect      = require('chai').expect;
 const cors        = require('cors');
 
 const fccTestingRoutes  = require('./routes/fcctesting.js');
-const apiRoutes         = require('./routes/api.js');
+const apiRoutes         = require('./dist/routes/api.js');
 const runner            = require('./test-runner');
 
 const app = express();
