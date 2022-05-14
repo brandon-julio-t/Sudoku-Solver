@@ -1,6 +1,14 @@
 export default class SudokuSolver {
-  public validate(puzzleString: string): any {
-    //
+  public validate(puzzleString: string): string {
+    if (!puzzleString) return "Required field missing";
+
+    if (puzzleString.split("").some((char: string) => !/[a-z0-9]/gi.test(char)))
+      return "Invalid characters in puzzle";
+
+    if (puzzleString.length !== 81)
+      return "Expected puzzle to be 81 characters long";
+
+    return "";
   }
 
   public checkRowPlacement(
@@ -23,7 +31,7 @@ export default class SudokuSolver {
 
   public checkRegionPlacement(
     puzzleString: string,
-    row: number,3
+    row: number,
     column: number,
     value: number
   ): any {

@@ -2,7 +2,7 @@
 
 import { Express } from "express";
 
-import SudokuSolver from "../core/application/logics/sudoku-solver";
+import SudokuSolver from "../core/logics/sudoku-solver";
 
 module.exports = function (app: Express) {
   let solver = new SudokuSolver();
@@ -10,6 +10,11 @@ module.exports = function (app: Express) {
   console.log({ solver });
 
   app.route("/api/check").post((req, res) => {
+    const { puzzle } = req.body;
+
+    const error = solver.validate(puzzle);
+    if (error) return res.json({ error });
+
     console.log({ req, res });
   });
 
