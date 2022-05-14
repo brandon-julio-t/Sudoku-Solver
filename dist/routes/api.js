@@ -11,7 +11,7 @@ module.exports = function (app) {
         const { puzzle } = req.body;
         const error = solver.validate(puzzle);
         if (error)
-            return res.json({ error });
+            res.json({ error });
         console.log({ req, res });
     });
     app.route("/api/solve").post((req, res) => {

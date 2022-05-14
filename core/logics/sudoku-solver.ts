@@ -2,7 +2,7 @@ export default class SudokuSolver {
   public validate(puzzleString: string): string {
     if (!puzzleString) return "Required field missing";
 
-    if (puzzleString.split("").some((char: string) => !/[a-z0-9]/gi.test(char)))
+    if (puzzleString.split("").some(char => !/[1-9\.]/gi.test(char)))
       return "Invalid characters in puzzle";
 
     if (puzzleString.length !== 81)
@@ -17,7 +17,7 @@ export default class SudokuSolver {
     column: number,
     value: number
   ): any {
-    //
+    console.log({ puzzleString, row, column, value });
   }
 
   public checkColPlacement(
@@ -26,7 +26,7 @@ export default class SudokuSolver {
     column: number,
     value: number
   ): any {
-    //
+    console.log({ puzzleString, row, column, value });
   }
 
   public checkRegionPlacement(
@@ -35,10 +35,10 @@ export default class SudokuSolver {
     column: number,
     value: number
   ): any {
-    //
+    console.log({ puzzleString, row, column, value });
   }
 
   public solve(puzzleString: string): any {
-    //
+    console.log({ puzzleString });
   }
 }

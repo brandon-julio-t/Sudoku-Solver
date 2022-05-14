@@ -13,7 +13,7 @@ module.exports = function (app: Express) {
     const { puzzle } = req.body;
 
     const error = solver.validate(puzzle);
-    if (error) return res.json({ error });
+    if (error) res.json({ error });
 
     console.log({ req, res });
   });
