@@ -20,15 +20,15 @@ export default class SudokuSolver {
     const board = this.puzzleStringTo2DArray(puzzleString);
 
     const existingNumbers = [] as number[];
-    for (let row = 0; row < 9; row++) {
-      if (row === startRow) {
+    for (let col = 0; col < 9; col++) {
+      if (col === startColumn) {
         continue;
       }
 
-      existingNumbers.push(Number(board[row]?.[startColumn]));
+      existingNumbers.push(Number(board[startRow]?.[col]));
     }
 
-    return !existingNumbers.includes(value);
+    return !existingNumbers.includes(Number(value));
   }
 
   public checkColPlacement(
@@ -40,15 +40,15 @@ export default class SudokuSolver {
     const board = this.puzzleStringTo2DArray(puzzleString);
 
     const existingNumbers = [] as number[];
-    for (let col = 0; col < 9; col++) {
-      if (col === startColumn) {
+    for (let row = 0; row < 9; row++) {
+      if (row === startRow) {
         continue;
       }
 
-      existingNumbers.push(Number(board[startRow]?.[col]));
+      existingNumbers.push(Number(board[row]?.[startColumn]));
     }
 
-    return !existingNumbers.includes(value);
+    return !existingNumbers.includes(Number(value));
   }
 
   public checkRegionPlacement(
@@ -86,7 +86,7 @@ export default class SudokuSolver {
       }
     }
 
-    return !existingNumbers.includes(value);
+    return !existingNumbers.includes(Number(value));
   }
 
   public solve(puzzleString: string): any {
